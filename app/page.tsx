@@ -12,6 +12,9 @@ export default function Home() {
       <Link href="/blog/rohith" className="text-white-500 underline">
   Read Blog Post
 </Link>
+<Link href="/user/rohith/settings" className="text-blue-500 underline">
+  Go to Rohith’s Settings
+</Link>
 
     </main>
   );
