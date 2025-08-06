@@ -9,6 +9,10 @@ export default function Home() {
       <Link href="/about" className="text-blue-500 underline">Go to About</Link>
       <Link href="/contact" className="text-blue-500 underline">Go to contact</Link>
       <Link href="/dashboard" className="text-blue-500 underline">Dashboard</Link>
+      <Link href="/blog/rohith" className="text-white-500 underline">
+  Read Blog Post
+</Link>
+
     </main>
   );
 }
