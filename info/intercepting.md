@@ -72,3 +72,72 @@ export default function Dashboard() {
 
 ---
 
+
+
+
+
+## ✅ Step 34: Parallel Intercepting Routes (02:28:09–02:33:44)
+
+---
+
+### What are Parallel Intercepting Routes?
+
+* Combine **parallel routes** and **intercepting routes**.
+* Allow rendering **multiple UI segments in parallel**, with **some segments intercepting** navigation without changing the main URL.
+* Great for complex layouts with modals, sidebars, or overlays that open independently.
+
+---
+
+### How to create?
+
+* Use both **parallel segments** (in parentheses) and **intercepting segments** (with `@`).
+
+---
+
+### Example folder structure:
+
+```
+app/
+├── dashboard/
+│   ├── layout.tsx
+│   ├── (main)/
+│   │   └── page.tsx
+│   └── (@modal)/
+│       └── page.tsx
+```
+
+---
+
+### How it works:
+
+* The `(main)` segment shows the main dashboard content.
+* The `(@modal)` segment shows a modal overlay inside the dashboard layout.
+* Navigating to `/dashboard` shows `(main)`.
+* Navigating to `/dashboard/@modal` opens the modal **without changing main route** UI or URL.
+
+---
+
+### Rendering example in `dashboard/layout.tsx`:
+
+```tsx
+export default function DashboardLayout({ main, modal }: { main: React.ReactNode; modal: React.ReactNode }) {
+  return (
+    <>
+      <main>{main}</main>
+      {/* Modal overlay */}
+      <div className="fixed inset-0 bg-black bg-opacity-50">{modal}</div>
+    </>
+  );
+}
+```
+
+---
+
+### Benefits:
+
+* Complex UI flows with overlays that feel seamless.
+* Clean URL structures.
+* Independent loading/error UI per segment.
+
+---
+
